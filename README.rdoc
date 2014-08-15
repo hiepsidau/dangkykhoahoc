@@ -26,3 +26,20 @@ Things you may want to cover:
 
 Please feel free to use a different markup language if you do not plan to run
 <tt>rake doc:app</tt>.
+
+**As a student, I should be able to register a course
+**As a student, I should be able to cancel a course
+**As a student, I should be able to find a course
+**As a user, I should be able to register to be a studnent
+	model Student
+		+Email (login)
+		+(attribue) enscripted password (encript 1 chieu,md5)
+		+Phone number
+		+Name
+	//rails g model Student email:string enscripted_password:string  phone_number:string
+	controllers (phai o so nhieu)
+**As a user, I should be able to find a course
+**As a admin, I should be able to create a course
+**As a admin, I should be able to register a course
+
+**As a user, when I fill 'aaa' for email field, I should recieve error message
