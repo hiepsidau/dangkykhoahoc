@@ -14,17 +14,20 @@ class StudentsController < ApplicationController
   	end
   def login
     if request.post?
+      do_login
+    else
+      render:login
+    
+  end
+  private
+  def do_login
       if Student.self.login_by_email_and_password(params[:email].,params[:password])
         session[:logined_email] = params[:email]
         flash[:notice] ='login success'
         redirect_to '/students'
-        else
-          redirect_to '/login'
+      else
+        redirect_to '/login'
       end
-    else
-      render :login
   end
-      
-  end
-  
+ 
 end
