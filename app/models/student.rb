@@ -1,10 +1,10 @@
 class Student < ActiveRecord::Base
 	attr_accessor :password
 	validates :email, :presence => true,
-			  :format =>{:with => /[^\w+@[a-zA-Z_]+?\.[a-zA-Z]{2,3}$]/} #regexlib.com
-			  :uniqness =>true ,:on => :create #:on => :update
+			  # :format =>{:with => /[^\w.]+@[a-zA-Z_]+?\.[a-zA-Z]{2,3}$]/} #regexlib.com
+			  # :uniqueness => true ,:on => :create #:on => :update
 
-	validates :password,:presence => {:message => 'khong the bo trong'},
+	validates :password,:presence => #{:message => 'khong the bo trong'}
 						#:confirmation => true
 	validates :enscripted_password, :presence => true, :on => :create
 	before_validation :enscripted_password, :if => "password.present?" # lambda
@@ -20,7 +20,7 @@ class Student < ActiveRecord::Base
   	def seft.login_by_email_and_password(email, password) #class method,kiem tra ban than co login dc hay ko
 
       student = where(:email => email.first)
-      password.present? && student.password == encode(password)
+      password.present? && student.password == encode(password)# credential_params
   	end
   	def selt.encode(text)
     	Digest::MD5.base64digest(text)

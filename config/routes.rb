@@ -5,10 +5,11 @@ Rails.application.routes.draw do
   # You can have the root of your site routed with "root"
   # root 'welcome#index'
   root 'students#register'
-  # Example of regular route:
-  get 'register' => 'students#register'#goi method get,toi controller student
-  get '/sign_up' => 'students#sign_up'
-  get '/student' => 'students#index'
+  # # Example of regular route:
+  # get '/register' => 'students#register'#goi method get,toi controller student
+  # post '/sign_up' => 'students#sign_up'
+  # get '/students' => 'students#index'
+  # match '/login' => 'students#login', :via => [:get, :post]
   # Example of named route that can be invoked with purchase_url(id: product.id)
   #   get 'products/:id/purchase' => 'catalog#purchase', as: :purchase
 
@@ -16,16 +17,27 @@ Rails.application.routes.draw do
   #   resources :products
 
   # Example resource route with options:
-  #   resources :products do
-  #     member do
-  #       get 'short'
-  #       post 'toggle'
-  #     end
-  #
-  #     collection do
+  #   resources :products do    7 method (index       students[GET] => collection
+  #     member do                         created     students[POST]  => collection
+  #       get 'short'                     new         students/new[GET] => :new collection
+  #       post 'toggle'                   edit        students/:id[GET]
+  #     end                               update      students/:id [PUT]      member
+  #                                       delete      students/:id [DELETE]
+  #     collection do                     show        students/:id [GET]
   #       get 'sold'
   #     end
   #   end
+  # rake routes
+  resource :students do
+    collection do
+      post 'sign_up'
+      get 'register'
+      get 'login'
+      post 'login'
+    end
+  end
+
+
 
   # Example resource route with sub-resources:
   #   resources :products do
