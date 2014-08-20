@@ -44,3 +44,9 @@ Please feel free to use a different markup language if you do not plan to run
 **As a admin, I should be able to register a course
 
 **As a user, when I fill 'aaa' for email field, I should recieve error message
+
+***PROJECT
+	*users co the invite friends
+		- challenges
+		- game
+		- tasks
