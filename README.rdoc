@@ -38,6 +38,7 @@ Please feel free to use a different markup language if you do not plan to run
 		+Name
 	//rails g model Student email:string enscripted_password:string  phone_number:string
 	controllers (phai o so nhieu)
+**Tao login form
 **As a user, I should be able to find a course
 **As a admin, I should be able to create a course
 **As a admin, I should be able to register a course

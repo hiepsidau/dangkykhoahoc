@@ -1,4 +1,5 @@
 class StudentsController < ApplicationController
+  skip_before_action :require_login,:only =>[:register,:sign_up,:login]
   def index
 
   end
@@ -27,7 +28,7 @@ class StudentsController < ApplicationController
 
   private
   def do_login
-      if Student.self.login_by_email_and_password(params[:email],params[:password])
+      if Student.self.login_by_email_and_password(student_params)
         session[:logined_email] = params[:email]
         flash[:notice] = 'login success'
         redirect_to '/students'

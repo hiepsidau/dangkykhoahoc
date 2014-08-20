@@ -1,7 +1,7 @@
-<%=form_tag ('/students/sign_up' ),method: :POST do %>
-	<label>Email</label>
-	<input name='student[email]' type='email'>
-	<label>Password</label>
-	<input name='password' type="password"/><br/>
-	<input type='submit' name='submit' value="Submit"/>
+<%=form_for :student, url: sign_up_students_path, method: :post do |f|%>
+	<%= f.label :email %>
+	<%= f.email_field :email%>
+	<%= f.label :password %>
+	<%= f.password_field :password%>
+	<%= f.submit%>
 <% end %>
