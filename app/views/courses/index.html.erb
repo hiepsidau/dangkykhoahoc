@@ -15,7 +15,7 @@
   <tbody>
     <% @courses.each do |course| %>
       <tr>
-        <td><%= check_box_tag "courses[ids][]",course.id %></td>
+        <td><%= check_box_tag "courses[ids][]",course.id, 0,class: 'register-checkbox' %></td>
 
         <td><%= course.name %></td>
         <td><%= course.start_at_date %></td>

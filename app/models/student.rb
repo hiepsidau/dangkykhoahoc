@@ -1,7 +1,7 @@
 class Student < ActiveRecord::Base
 	attr_accessor :password
-	has_many :sourse_students
-	has_many :courses,:through => :sourse_students
+	has_many :course_students
+	has_many :courses,:through => :course_students
 	validates :email, presence: true,
 			  format: {with: /[^\w.]+@[a-zA-Z_]+?\.[a-zA-Z]{2,3}$]/,on: :create },
 			  #regexlib.com
