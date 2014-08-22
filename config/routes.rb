@@ -1,12 +1,16 @@
 Rails.application.routes.draw do
-  resources :courses
+  resources :courses do
+    collection do
+      post 'register'
+    end
+  end
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
   # You can have the root of your site routed with "root"
   # root 'welcome#index'
-  root 'students#register'
+  root 'courses#index'
   # # Example of regular route:
   # get '/register' => 'students#register'#goi method get,toi controller student
   # post '/sign_up' => 'students#sign_up'

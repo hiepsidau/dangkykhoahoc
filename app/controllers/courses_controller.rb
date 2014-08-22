@@ -1,7 +1,16 @@
 class CoursesController < ApplicationController
   before_action :set_course, only: [:new,:show, :edit, :update, :destroy]
 
- skip_before_action :require_login,:only =>[:register,:sign_up,:login]
+  def register
+    @current_student = Student.find_by_email(sessionp[:logined_email])
+    @courses = Course.where(:id => params[:course][:ids])
+    @current_student.courses = courses
+    if @current_student.save
+      redirect_to student_path(@current_student)
+    else
+      redirect_to courses_path
+    end
+  end
   # GET /courses
   # GET /courses.json
   def index

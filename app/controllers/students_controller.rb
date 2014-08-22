@@ -3,6 +3,11 @@ class StudentsController < ApplicationController
   def index
 
   end
+  def show
+    @student = Student.find(params[:id])
+    @course = @student.courses
+    
+  end
 
   def register
   	@student = Student.new #khoi tao bien student
@@ -11,11 +16,12 @@ class StudentsController < ApplicationController
   def sign_up
   	@student = Student.new(student_params)
   	if @student.save
-  		redirect_to '/student'
+  		redirect_to '/students'
   	else
   		render :register
     end
   end
+ 
 
   def login
     if request.post?
